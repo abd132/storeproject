@@ -20,6 +20,7 @@ import {
 import {CartContext, ProductCartProps} from '../../contexts/CartContext';
 import ListCartProduct from '../../components/ListCartProduct';
 import theme from '../../global/theme';
+import AnimatedIcons from '../../Components/AnimatedIcons';
 
 export default function Cart() {
   const {cart, loadingCart, total, removeAllItemsCart} =
@@ -51,12 +52,7 @@ export default function Cart() {
 
       {cart.length <= 0 ? (
         <EmptyArea>
-          <Lottie
-            source={require('../../assets/animations/empty-cart.json')}
-            autoPlay
-            loop
-            style={{width: 250}}
-          />
+          <AnimatedIcons iconName={'emptyCart'} />
           <EmptyText>Your cart is empty...</EmptyText>
         </EmptyArea>
       ) : (

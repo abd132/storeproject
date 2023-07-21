@@ -21,14 +21,19 @@ type CartProviderProps = {
   children: ReactNode;
 };
 
-export const CartContext = createContext<CartContextData>(
-  {} as CartContextData,
-);
+export const CartContext = createContext<CartContextData>({
+  cart: [],
+  addToCart: () => {},
+  loadingCart: false,
+  total: 0,
+  removeToCart: () => {},
+  removeAllItemsCart: () => {},
+} as CartContextData);
 
 export default function CartProvider({children}: CartProviderProps) {
   const [cart, setCart] = useState<ProductCartProps[] | []>([]);
   const [loadingCart, setLoadingCart] = useState(false);
-  const [total, setTotal] = useState(0);
+  const [total, setTotal] = useState<number>(0);
 
   const addToCart = async (product: ProductProps) => {
     setLoadingCart(true);
@@ -86,12 +91,18 @@ export default function CartProvider({children}: CartProviderProps) {
     setLoadingCart(false);
   };
 
+  const filtering = (currentCart: ProductCartProps[]) => {
+    return new Promise((resolve, reject) => {
+      resolve(
+        currentCart.reduce((acc, obj) => {
+          return acc + obj.total;
+        }, 0),
+      );
+    });
+  };
   const totalResultCart = async (currentCart: ProductCartProps[]) => {
-    const myCart = currentCart;
-    const result = await myCart.reduce((acc, obj) => {
-      return acc + obj.total;
-    }, 0);
-    setTotal(result);
+    const result = await filtering(currentCart);
+    setTotal(result as number);
   };
 
   const removeAllItemsCart = () => {
