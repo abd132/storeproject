@@ -6,7 +6,7 @@ import Lottie from 'lottie-react-native';
 import ProductCard, {ProductProps} from '../../components/ProductCard';
 
 import {Container, EmptyArea, EmptyText, Title} from './styles';
-
+import AnimatedIcons from '../../Components/AnimatedIcons';
 import {getFavorites} from '../../utils/storage';
 
 export default function Favorites() {
@@ -42,7 +42,7 @@ export default function Favorites() {
       {favorites.length === 0 ? (
         <EmptyArea>
           <Lottie
-            source={require('../../assets/animations/empty-fav.json')}
+            source={require('../../Components/AnimatedIcons')}
             autoPlay
             loop
             style={{width: 250}}

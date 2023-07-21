@@ -1,7 +1,5 @@
 import React, {useContext} from 'react';
 import {ActivityIndicator, FlatList, ListRenderItemInfo} from 'react-native';
-import Lottie from 'lottie-react-native';
-
 import {
   Container,
   Title,
@@ -35,6 +33,9 @@ export default function Cart() {
     />
   );
 
+  // @ts-ignore
+  // @ts-ignore
+  // @ts-ignore
   // @ts-ignore
   // @ts-ignore
   return (

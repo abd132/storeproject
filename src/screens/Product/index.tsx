@@ -1,7 +1,6 @@
 import {useContext, useEffect, useState} from 'react';
 import {useNavigation} from '@react-navigation/native';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
-
 import {AppStackParamList} from '../../routes/app.routes';
 import theme from '../../global/theme';
 

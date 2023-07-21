@@ -1,7 +1,7 @@
 import {useEffect, useMemo, useState} from 'react';
 import {ActivityIndicator, ListRenderItemInfo, FlatList} from 'react-native';
 import Lottie from 'lottie-react-native';
-
+import AnimatedIcons from '../../Components/AnimatedIcons';
 import {
   Container,
   EmptyArea,
@@ -77,7 +77,7 @@ export default function Home() {
       {filteredProducts?.length <= 0 && !loadingProducts && (
         <EmptyArea>
           <Lottie
-            source={require('../../assets/animations/search-empty.json')}
+            source={require('../../Components/AnimatedIcons')}
             autoPlay
             loop
             style={{width: 250}}

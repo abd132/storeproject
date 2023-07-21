@@ -2,10 +2,10 @@ import {NavigationContainer} from '@react-navigation/native';
 import {StatusBar} from 'react-native';
 import {ThemeProvider} from 'styled-components';
 
-import CartProvider from './src/contexts/CartContext';
+import CartProvider from '../project1/src/Contexts/CartContext';
 
-import theme from './src/global/theme';
-import Routes from './src/routes';
+import theme from '../project1/src/global/theme';
+import Routes from '../project1/src/Routes';
 
 export default function App() {
   return (
